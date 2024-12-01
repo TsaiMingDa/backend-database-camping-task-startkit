@@ -219,6 +219,9 @@ set join_at = '2024-11-25 14:01:59', status = '上課中'
 where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
 and status = '即將授課';
 -- 5-6. 查詢：計算用戶王小明的購買堂數，顯示須包含以下欄位： user_id , total。 (需使用到 SUM 函式與 Group By)
+select user_id, sum(purchased_credits) as total  from "CREDIT_PURCHASE"
+where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
+group by user_id;
 
 -- 5-7. 查詢：計算用戶王小明的已使用堂數，顯示須包含以下欄位： user_id , total。 (需使用到 Count 函式與 Group By)
 

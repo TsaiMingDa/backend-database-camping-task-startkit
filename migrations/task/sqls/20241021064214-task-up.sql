@@ -272,3 +272,7 @@ where "CREDIT_PURCHASE".created_at > '2024-12-01 00:00:00'
 and "CREDIT_PURCHASE".created_at < '2024-12-31 23:59:59';
 -- 6-5. 查詢：計算 12 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
+select count(distinct(user_id)) as 預約會員人數 from "COURSE_BOOKING"
+where "COURSE_BOOKING".created_at > '2024-12-01 00:00:00'
+and "COURSE_BOOKING".created_at < '2024-12-31 23:59:59'
+and status != '已取消';
